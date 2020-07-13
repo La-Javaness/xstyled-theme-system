@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/La-Javaness/xstyled-theme-system/compare/v1.1.0...v1.1.1) (2020-07-13)
+
+
+### Bug Fixes
+
+* Bypass idiotic Webpack behavior when no default export is set ([d1bedc7](https://github.com/La-Javaness/xstyled-theme-system/commit/d1bedc79dcdf1879b3c8ab29521649185a6a1927))
+
 # [1.1.0](https://github.com/La-Javaness/xstyled-theme-system/compare/v1.0.0...v1.1.0) (2020-07-13)
 
 
