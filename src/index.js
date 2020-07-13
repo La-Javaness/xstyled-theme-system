@@ -61,7 +61,7 @@ const textStyleFactory = (props) => (style) => {
  * of a background color in your theme, and values must be `css` template literals.
  * @returns {Function}     An `@xstyled/system` `variant`.
  */
-const colorMode = (params) => variant({ ...params, prop: 'restProps.colorMode', default: '__xstncm__', __xstncm__: '' })
+const colorMode = (params) => variant({ ...params, prop: 'colorMode', default: '__xstncm__', __xstncm__: '' })
 // xstncm -> xstyled-theme no color mode
 
 /**
