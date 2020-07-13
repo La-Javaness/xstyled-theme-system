@@ -51,16 +51,42 @@ export const textStyleFactory = (props) => (style) => {
 }
 
 /**
- * Injects custom CSS instructions into a component based on its `colormode` prop.
+ * Generates the `colorMode` system helper, a function that injects custom CSS
+ * instructions into a component based on its `colorMode` prop.
+ *
  * Primarily useful to adjust things like letter spacing, font weight or other
  * properties related to contrast rating and legibility to help you meet a11y
  * requirements with every background color you use in your app.
- * @param   {object} params A structure similar to the one used by `@xstyled/system`'s
- * `variant` utility, except that there is no `default` key. Keys must be the name
- * of a background color in your theme, and values must be `css` template literals.
- * @returns {Function}     An `@xstyled/system` `variant`.
+ *
+ * The `colorMode` helper takes a unique parameter, an object where each key is
+ * the name of a background color in your theme, and each value is a `css` template
+ * literal or a string with valid CSS instructions.
+ *
+ * @param   {object}   props       A component's props.
+ * @param   {object}   props.theme The theme provided in the props by styled-components.
+ * @returns {Function}     				 The `colorMode` helper that applies variants
+ * for your component based on your theme's background colors and its colorMode prop.
  */
-export const colorMode = (params) => variant({ ...params, prop: 'colorMode', default: '__xstncm__', __xstncm__: '' })
+export const colorModeFactory = (props) => (params) => {
+	const variants = {
+		...params,
+		__xstncm__: '',
+	}
+
+	Object.keys(props.theme.colors)
+		.filter((color) => color.startsWith('bg-'))
+		.map((color) => color.substr(3))
+		.filter((color) => !(color in variants))
+		.forEach((color) => {
+			variants[color] = ''
+		})
+
+	return variant({
+		prop: 'colorMode',
+		default: '__xstncm__',
+		variants,
+	})
+}
 // xstncm -> xstyled-theme no color mode
 
 /**
@@ -90,7 +116,15 @@ export const injectTheme = (ThemeExport) => (props) => {
 	}
 
 	return ThemeExport.map((fun) =>
-		fun({ colorMode, css, props, textStyle: textStyleFactory(props), th, theme: props.theme, variant })
+		fun({
+			colorMode: colorModeFactory(props),
+			css,
+			props,
+			textStyle: textStyleFactory(props),
+			th,
+			theme: props.theme,
+			variant,
+		})
 	)
 }
 
@@ -101,4 +135,4 @@ export const injectTheme = (ThemeExport) => (props) => {
  */
 export const margins = compose(scMargin, scMarginBottom, scMarginTop, scMarginLeft, scMarginRight, scMx, scMy)
 
-export default { textStyleFactory, colorMode, injectTheme, margins }
+export default { textStyleFactory, colorModeFactory, injectTheme, margins }
