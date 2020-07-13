@@ -1,0 +1,25 @@
+{
+	"srcDir": "src",
+	"repositoryName": "xstyled-theme-internals",
+	"isLibrary": true,
+	"isApp": false,
+	"isCli": false,
+	"withCypress": false,
+	"withReact": false,
+	"withBabel": true,
+	"monorepo": "NO_MONOREPO",
+	"frontOrBack": "FRONTEND",
+	"projectType": "LIBRARY",
+	"styleStack": [
+		"XSTYLED_THEME",
+		"XSTYLED",
+		"STYLED_COMPONENTS"
+	],
+	"withTypescript": false,
+	"withStyledComponents": true,
+	"withXstyledTheme": true,
+	"withSASSLoaders": false,
+	"withCSSLoaders": false,
+	"extensions": ".js,.jsx",
+	"repositoryHost": "GITHUB"
+}
