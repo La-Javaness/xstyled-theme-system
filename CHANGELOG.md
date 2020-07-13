@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/La-Javaness/xstyled-theme-system/compare/v1.1.1...v1.1.2) (2020-07-13)
+
+
+### Bug Fixes
+
+* Avoid undefined variant warnings in colorMode ([0031b59](https://github.com/La-Javaness/xstyled-theme-system/commit/0031b599dd9424a05403a16169493bd3a2374376))
+
 ## [1.1.1](https://github.com/La-Javaness/xstyled-theme-system/compare/v1.1.0...v1.1.1) (2020-07-13)
 
 
