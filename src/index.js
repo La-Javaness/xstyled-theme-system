@@ -1,4 +1,3 @@
-import 'core-js'
 import {
 	compose,
 	margin as scMargin,
@@ -23,7 +22,7 @@ import { css } from '@xstyled/styled-components'
  * in a component, or an empty string if no instructions are available or the
  * style name is incorrect.
  */
-const textStyleFactory = (props) => (style) => {
+export const textStyleFactory = (props) => (style) => {
 	if (!style) {
 		return ''
 	}
@@ -61,7 +60,7 @@ const textStyleFactory = (props) => (style) => {
  * of a background color in your theme, and values must be `css` template literals.
  * @returns {Function}     An `@xstyled/system` `variant`.
  */
-const colorMode = (params) => variant({ ...params, prop: 'colorMode', default: '__xstncm__', __xstncm__: '' })
+export const colorMode = (params) => variant({ ...params, prop: 'colorMode', default: '__xstncm__', __xstncm__: '' })
 // xstncm -> xstyled-theme no color mode
 
 /**
@@ -85,7 +84,7 @@ const colorMode = (params) => variant({ ...params, prop: 'colorMode', default: '
  * @returns {string[]}               An array of strings containing CSS
  * instructions for the element being styled.
  */
-const injectTheme = (ThemeExport) => (props) => {
+export const injectTheme = (ThemeExport) => (props) => {
 	if (!ThemeExport) {
 		return null
 	}
@@ -100,6 +99,6 @@ const injectTheme = (ThemeExport) => (props) => {
  * marginBottom, mb, marginTop, mt, marginLeft, ml, marginRight, mr, mx and my.
  * @type {Function}
  */
-const margins = compose(scMargin, scMarginBottom, scMarginTop, scMarginLeft, scMarginRight, scMx, scMy)
+export const margins = compose(scMargin, scMarginBottom, scMarginTop, scMarginLeft, scMarginRight, scMx, scMy)
 
-export { colorMode, injectTheme, margins, textStyleFactory }
+export default { textStyleFactory, colorMode, injectTheme, margins }
