@@ -1,6 +1,6 @@
 {
 	"name": "@xstyled-theme/system",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"description": "Core utilities to manipulate the xstyled theme and write themes faster",
 	"keywords": [
 		"xstyled-theme",
