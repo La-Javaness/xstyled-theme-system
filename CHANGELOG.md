@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/La-Javaness/xstyled-theme-system/compare/v1.1.2...v1.2.0) (2020-08-04)
+
+
+### Bug Fixes
+
+* Avoid undefined variant warnings in colorMode ([d6bd36f](https://github.com/La-Javaness/xstyled-theme-system/commit/d6bd36f0e02ad3d5fd65b48c261f7c7efd2c1639))
+
+
+### Features
+
+* Add React hook to generate the sprite URL for an icon ([7b9afde](https://github.com/La-Javaness/xstyled-theme-system/commit/7b9afde8ecb4c4781b0c66de3418bfc53646b0b3))
+* Add RGB/Hex to 8-char Hex converter ([aeceab5](https://github.com/La-Javaness/xstyled-theme-system/commit/aeceab564d29c2cdb69d2d3bbc9be50dba4f2019))
+
 ## [1.1.2](https://github.com/La-Javaness/xstyled-theme-system/compare/v1.1.1...v1.1.2) (2020-07-13)
 
 
