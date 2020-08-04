@@ -12,6 +12,8 @@ import {
 } from '@xstyled/system'
 import { css } from '@xstyled/styled-components'
 
+import rgbaToHex from './rgbaToHex'
+
 /**
  * Generates the `textStyle` system helper, a function that computes the CSS
  * properties for a given text style name, based on what's defined in the theme.
@@ -135,4 +137,23 @@ export const injectTheme = (ThemeExport) => (props) => {
  */
 export const margins = compose(scMargin, scMarginBottom, scMarginTop, scMarginLeft, scMarginRight, scMx, scMy)
 
-export default { textStyleFactory, colorModeFactory, injectTheme, margins }
+/**
+ * Returns the 'src' property to use to display an icon for a given icon name
+ * and color. Both name and color must be in the theme. Foreground colors are
+ * supported and will be adjusted to the color matching the current background.
+ * @param {object} theme		 The theme, which must be retrieved with useContext.
+ * @param {string} name      The icon name, taken from the theme.
+ * @param {string} color     The icon color, taken from the theme.
+ * @param {string} iconsPath The path where the `dist/icons` folder of the
+ * theme is deployed on the server.
+ * @returns {string}           The string to use as an `src` attribute on an
+ * `img` tag to display this icon.
+ */
+export const useIconSrc = (theme, name, color, iconsPath) => {
+	const colorValue = theme.colors[color]
+	const colorHexCode = rgbaToHex(colorValue)
+
+	return `${iconsPath}/view/sprite-${colorHexCode.substr(1)}.svg#${name}`
+}
+
+export default { textStyleFactory, colorModeFactory, injectTheme, margins, rgbaToHex, useIconSrc }
