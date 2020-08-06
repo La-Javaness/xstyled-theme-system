@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/La-Javaness/xstyled-theme-system/compare/v1.2.0...v1.2.1) (2020-08-06)
+
+
+### Bug Fixes
+
+* Avoid crashes when theme bits are missing ([1454670](https://github.com/La-Javaness/xstyled-theme-system/commit/1454670994aa01fded987a1b73abf110d8064370))
+
 # [1.2.0](https://github.com/La-Javaness/xstyled-theme-system/compare/v1.1.2...v1.2.0) (2020-08-04)
 
 
