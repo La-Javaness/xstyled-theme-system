@@ -30,6 +30,14 @@ export const textStyleFactory = (props) => (style) => {
 	}
 
 	const { theme } = props
+
+	if (!theme) {
+		if (process.env.XSTYLED_THEME_DEBUG) {
+			console.error(`Error: the xstyled-theme theme is missing. Are you sure you've added a ThemeProvider to your DOM?`)
+		}
+		return ''
+	}
+
 	const styleKey = `${style}Style`
 	const themeToCssMap = {
 		colors: 'color',
@@ -44,10 +52,26 @@ export const textStyleFactory = (props) => (style) => {
 
 	return Object.keys(themeToCssMap)
 		.map((key) => {
-			const styleValue = theme[key][styleKey]
-			const cssPropName = themeToCssMap[key]
+			try {
+				if (!theme[key]) {
+					if (process.env.XSTYLED_THEME_DEBUG) {
+						console.error(
+							`Error: your current xstyled-theme theme is incomplete and missing the '${key}' section, or you forgot to wrap an xstyled-theme component with a ThemeProvider.`
+						)
+					}
+					return ''
+				}
 
-			return styleValue ? `${cssPropName}: ${styleValue};\n` : ''
+				const styleValue = theme[key][styleKey]
+				const cssPropName = themeToCssMap[key]
+
+				return styleValue ? `${cssPropName}: ${styleValue};\n` : ''
+			} catch (e) {
+				if (process.env.XSTYLED_THEME_DEBUG) {
+					console.error(`Error: Failed to generate CSS instructions for text style '${style}' and key '${key}'`)
+				}
+				throw e
+			}
 		})
 		.join('')
 }
