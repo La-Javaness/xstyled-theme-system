@@ -22,6 +22,10 @@ module.exports = (rgba) => {
 		}
 	}
 
+	if (Object.prototype.toString.call(rgba) !== '[object String]') {
+		return null
+	}
+
 	const values = rgba
 		.replace(/rgba?\(/, '')
 		.replace(')', '')
@@ -37,6 +41,10 @@ module.exports = (rgba) => {
 		values.push(255)
 	} else {
 		values[3] = Math.round(values[3] * 255)
+	}
+
+	if (values.some((value) => value < 0 || value > 255)) {
+		return null
 	}
 
 	if (values.length !== 4) {

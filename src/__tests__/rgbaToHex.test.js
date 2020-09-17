@@ -30,9 +30,18 @@ describe('color - rgbaToHex', () => {
 		expect(rgbaToHex('0x1234')).toBe('#11223344')
 	})
 
-	it('returns null if the input is invalid', () => {
+	it('returns null if the input is of a wrong type', () => {
+		expect(rgbaToHex(192)).toBe(null)
+		expect(rgbaToHex(null)).toBe(null)
+		expect(rgbaToHex({ bad: 'apple' })).toBe(null)
+		expect(rgbaToHex(() => false)).toBe(null)
+	})
+
+	it("returns null if the input isn't an hex or rgba code", () => {
 		expect(rgbaToHex('foo')).toBe(null)
 		expect(rgbaToHex('BAR')).toBe(null)
 		expect(rgbaToHex('#BAR')).toBe(null)
+		expect(rgbaToHex('rgb(256,255,255)')).toBe(null)
+		expect(rgbaToHex('rgb(255,-1,255)')).toBe(null)
 	})
 })
