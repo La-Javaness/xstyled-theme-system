@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/La-Javaness/xstyled-theme-system/compare/v1.2.1...v1.3.0) (2020-09-17)
+
+
+### Bug Fixes
+
+* Update rgbaToHex to circumvent bugs with bad inputs ([e704f2f](https://github.com/La-Javaness/xstyled-theme-system/commit/e704f2f5a02b55614a4c5799ade3dfaf4595ad4d))
+
+
+### Features
+
+* Add hexToRgba util ([062f2ea](https://github.com/La-Javaness/xstyled-theme-system/commit/062f2ea6d4d012253e22c5638a268d2dc099eebf))
+
 ## [1.2.1](https://github.com/La-Javaness/xstyled-theme-system/compare/v1.2.0...v1.2.1) (2020-08-06)
 
 
