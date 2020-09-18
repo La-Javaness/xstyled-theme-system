@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/La-Javaness/xstyled-theme-system/compare/v1.3.0...v1.3.1) (2020-09-18)
+
+
+### Bug Fixes
+
+* **useIconSrc:** Fail early in case the color isn't recognised ([535c864](https://github.com/La-Javaness/xstyled-theme-system/commit/535c86498a0a8b7bb94315db32f2ccf402648031))
+
 # [1.3.0](https://github.com/La-Javaness/xstyled-theme-system/compare/v1.2.1...v1.3.0) (2020-09-17)
 
 
