@@ -171,13 +171,15 @@ export const margins = compose(scMargin, scMarginBottom, scMarginTop, scMarginLe
  * @param {string} iconsPath The path where the `dist/icons` folder of the
  * theme is deployed on the server.
  * @returns {string}           The string to use as an `src` attribute on an
- * `img` tag to display this icon.
+ * `img` tag to display this icon, or null if an error occured.
  */
 export const useIconSrc = (theme, name, color, iconsPath) => {
 	const colorValue = theme.colors[color]
-	const colorHexCode = rgbaToHex(colorValue)
+	if (!colorValue) {
+		return null
+	}
 
-	return `${iconsPath}/view/sprite-${colorHexCode.substr(1)}.svg#${name}`
+	return `${iconsPath}/view/sprite-${rgbaToHex(colorValue).substr(1)}.svg#${name}`
 }
 
 export default { textStyleFactory, colorModeFactory, injectTheme, margins, rgbaToHex, useIconSrc }
