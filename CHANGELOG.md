@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/La-Javaness/xstyled-theme-system/compare/v1.3.1...v1.4.0) (2021-04-12)
+
+
+### Features
+
+* Add keyframes helper to injectTheme functions ([cf66c7c](https://github.com/La-Javaness/xstyled-theme-system/commit/cf66c7c912305fe9f3cdff8ecc9b2c59224225e4))
+
 ## [1.3.1](https://github.com/La-Javaness/xstyled-theme-system/compare/v1.3.0...v1.3.1) (2020-09-18)
 
 
