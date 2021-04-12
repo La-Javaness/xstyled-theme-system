@@ -10,7 +10,7 @@ import {
 	th,
 	variant,
 } from '@xstyled/system'
-import { css } from '@xstyled/styled-components'
+import { css, keyframes } from '@xstyled/styled-components'
 
 import rgbaToHex from './rgbaToHex'
 
@@ -145,6 +145,7 @@ export const injectTheme = (ThemeExport) => (props) => {
 		fun({
 			colorMode: colorModeFactory(props),
 			css,
+			keyframes,
 			props,
 			textStyle: textStyleFactory(props),
 			th,
